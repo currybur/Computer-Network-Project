@@ -1,0 +1,265 @@
+<html>
+
+<head>
+  <h>
+    区块链五子棋
+  </h>
+  <script type="text/javascript">
+    var col = "#f00";
+    function makedot(x, y) {  //画点函数  
+      var father = document.getElementById("father");
+      var son = document.createElement("div");
+      var stt = son.style;
+      stt.height = "1px";
+      stt.position = "absolute";
+      stt.left = x + "px";
+      stt.top = y + "px";
+      stt.width = "1px";
+      stt.background = col;
+      stt.overflow = "hidden";
+      father.appendChild(son);
+    }
+
+    function circle(x, y, r) {  //(x,y)圆心，r半径  
+      var dotx, doty, radio;
+      var Pi = Math.PI;
+      makedot(x, y);
+      for (var i = 0; i < 360; i += 3.5) {
+        radio = i * Pi / 180;
+        dotx = r * Math.cos(radio) + x;
+        doty = r * Math.sin(radio) + y
+        makedot(dotx, doty);
+      }
+    }
+
+    function rect(x, y, w, h) {  //(x,y)左上角坐标,w,h 宽与高  
+      var father = document.getElementById("father");
+      var son = document.createElement("div");
+      var stt = son.style;
+      stt.height = h + "px";
+      stt.position = "absolute";
+      stt.left = x + "px";
+      stt.top = y + "px";
+      stt.width = w + "px";
+      stt.background = col;
+      stt.overflow = "hidden";
+      stt.border = "1px #000 solid";
+      father.appendChild(son);
+    }
+
+
+    function line(x1, y1, x2, y2) {
+      var slope = (y2 - y1) / (x2 - x1);  //斜率  
+      var diff = x2 - x1;
+      if (x1 < x2) {
+        for (var i = 0; i < diff; i++) {
+          makedot(x1 + i, y1 + slope * i);
+        }
+      } else if (x1 > x2) {
+        for (var i = 0; i > diff; i--) {
+          makedot(x1 + i, y1 + slope * i);
+        }
+      } else {  //画垂直线  
+        var temp = y2 - y1;
+        if (temp > 0) {
+          for (var i = 0; i < temp; i++) {
+            makedot(x1, y1 + i);
+          }
+        } else {
+          for (var i = 0; i > temp; i--) {
+            makedot(x1, y1 + i);
+          }
+        }
+      }
+    }
+
+    var mx = 0;
+    var my = 0;
+    var mmx = 100;
+    var mmy = 100;
+    var DN = 20;
+    var DIS = 20;
+    var LINENUM = 19;
+    var clickNum = 0;
+    var blackTurn = false;
+    var yellowTurn = false;
+    var visit = new Array();
+    var ten = new Array();
+    var dir = new Array(new Array(-2, -10), new Array(-2, 2), new Array(2, -10), new Array(2, 2), new Array(-10, -2), new Array(-10, 2), new Array(2, -2), new Array(2, 2));
+
+    //画地图
+    function drawMap() {
+      col = "lightblue";
+      for (var i = 1; i < LINENUM; i++)
+        for (var j = 1; j < LINENUM; j++)
+          rect(i * DIS, j * DIS + DN, DIS, DIS);
+      var centerX = (LINENUM + 1) / 2 * DIS;
+      var centerY = (LINENUM + 1) / 2 * DIS + DN;
+      col = "green";
+      //图中的实心圆
+      fullCircle(centerX, centerY, 3);
+      fullCircle(centerX + 5 * DIS, centerY + 5 * DIS, 3);
+      fullCircle(centerX + 5 * DIS, centerY - 5 * DIS, 3);
+      fullCircle(centerX - 5 * DIS, centerY + 5 * DIS, 3);
+      fullCircle(centerX - 5 * DIS, centerY - 5 * DIS, 3);
+
+
+      //初始化棋盘
+      for (i = 0; i <= LINENUM; i++) {
+        visit[i] = new Array();
+        for (var j = 0; j <= LINENUM; j++)
+          visit[i][j] = 0;
+      }
+
+
+      for (i = 0; i < 4; i++) {
+        var father = document.getElementById("father");
+        ten[i] = document.createElement("div");
+        var stt = ten[i].style;
+        stt.height = "8px";
+        stt.position = "absolute";
+        stt.width = "1px";
+        stt.background = "red";
+        stt.overflow = "hidden";
+        father.appendChild(ten[i]);
+      }
+      for (i = 0; i < 4; i++) {
+        var father = document.getElementById("father");
+        ten[i + 4] = document.createElement("div");
+        var stt = ten[i + 4].style;
+        stt.height = "1px";
+        stt.position = "absolute";
+        stt.width = "8px";
+        stt.background = "red";
+        stt.overflow = "hidden";
+        father.appendChild(ten[i + 4]);
+      }
+    }
+
+    //画十字
+    function drawTen(eve) {
+      var x = document.body.scrollLeft + eve.clientX;
+      var y = document.body.scrollTop + eve.clientY;
+      mx = x - x % DIS;
+      my = y - y % DIS;
+      if (x > mx + DIS / 2) mx += DIS;
+      if (y > my + DIS / 2) my += DIS;
+      x = mx;
+      y = my;
+      if (x >= DIS && x <= DIS * LINENUM && y >= DIS + DN && y <= DIS * LINENUM + DN)
+        for (i = 0; i < 8; i++) {
+          var stt = ten[i].style;
+          stt.left = dir[i][0] + x + "px";
+          stt.top = dir[i][1] + y + "px";
+        }
+    }
+
+    //画⚪
+    function fullCircle(i, j, k) {
+      for (; k > 0; k -= 2)
+        circle(i, j, k);
+    }
+
+
+    function check(x, y, cc) {
+      for (var i = 1; i < 5; i++)
+        if (visit[x + i][y] != cc) break;
+      for (var j = 1; j < 5; j++)
+        if (x < j || visit[x - j][y] != cc) break;
+      if (i + j > 5) return true;
+      for (i = 1; i < 5; i++)
+        if (visit[x][y + i] != cc) break;
+      for (j = 1; j < 5; j++)
+        if (y < j || visit[x][y - j] != cc) break;
+      if (i + j > 5) return true;
+      for (i = 1; i < 5; i++)
+        if (visit[x + i][y + i] != cc) break;
+      for (j = 1; j < 5; j++)
+        if (x < j || y < j || visit[x - j][y - j] != cc) break;
+      if (i + j > 5) return true;
+      for (i = 1; i < 5; i++)
+        if (y < i || visit[x + i][y - i] != cc) break;
+      for (j = 1; j < 5; j++)
+        if (x < j || visit[x - j][y + j] != cc) break;
+      if (i + j > 5) return true;
+      return false;
+    }
+
+
+    async function dropDown(eve) {
+      if (!App.endGame) {
+        mx = document.body.scrollLeft + eve.clientX;
+        my = document.body.scrollTop + eve.clientY;
+        var i = mx - mx % DIS;
+        var j = my - my % DIS;
+        if (mx > i + DIS / 2) i += DIS;
+        if (my > j + DIS / 2) j += DIS;
+        if (i >= DIS && i <= DIS * LINENUM && j >= DIS + DN && j <= DIS * LINENUM + DN) {
+          var x = i / DIS;
+          var y = j / DIS;
+          await App.play_go(x, y);
+              
+          if (!App.play_go_success) {         
+            alert("此处已有棋子！请在别处下棋");
+          } else {
+            var bo = document.getElementById("board");
+            bo.innerHTML = ++clickNum + " steps";
+            if (col == "yellow") {
+              col = "black";
+              visit[x][y] = 2;
+              console.log(x, y, 2);
+              bo.innerHTML += "<br />  yellow's turn";
+              fullCircle(i, j, 8);
+              if (check(x,y,2)) {
+                alert("BLACK WIN!!");
+                canDrop = false;
+                bo.innerHTML="";
+              } else {
+                yellowTurn = true;
+                blackTurn = false;
+              }
+            } else {
+              col = "yellow";
+              visit[x][y] = 1;
+              console.log(x, y, 1);
+              bo.innerHTML += "<br />  black's turn";
+              fullCircle(i, j, 8);
+              if (check(x,y,1)) {
+                alert("YELLOW WIN!!");
+                canDrop = false;
+                bo.innerHTML="";
+              } else {
+                yellowTurn = false;
+                blackTurn = true;
+              }
+            }
+          }
+      
+        }
+      }
+    }
+  </script>
+</head>
+
+<body onclick="dropDown(event)" onload="drawMap()" onmousemove="drawTen(event)">
+</body>
+<div id="father">
+  <h1>
+    <title>
+      瀚文的五子棋
+    </title>
+  </h1>
+</div>
+<div id="board" style="height:20px;position:absolute;left:500px;top:150px;">
+  0 steps
+  <br />
+  yellow's turn
+</div>
+<input onclick="location.reload(true);App.clear()" style="position:absolute;left:100px;top:430px;" type="button"
+  value="restart" />
+<input onclick="App.clear()" style="position:absolute;left:250;top:430px;" type="button"
+  value="clear" />
+<script src="index.js">
+</script>
+
+</html>

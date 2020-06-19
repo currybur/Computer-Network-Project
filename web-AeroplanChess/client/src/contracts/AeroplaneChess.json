@@ -1,0 +1,1185 @@
+{
+  "contractName": "AeroplaneChess",
+  "abi": [
+    {
+      "inputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "player_list",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "color",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "state",
+          "type": "string"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "color",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "state",
+          "type": "string"
+        }
+      ],
+      "name": "_addNewUser",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"constant\":false,\"inputs\":[{\"internalType\":\"string\",\"name\":\"color\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"state\",\"type\":\"string\"}],\"name\":\"_addNewUser\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"player_list\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"color\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"state\",\"type\":\"string\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/C/workspace/web-AeroplanChess/contracts/AreoplaneChess.sol\":\"AeroplaneChess\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/C/workspace/web-AeroplanChess/contracts/AreoplaneChess.sol\":{\"keccak256\":\"0x7dc5048272058596bdb3f18e67865079ff9449062bcae33e86229bf7ebc8037c\",\"urls\":[\"bzz-raw://d780cde749b12a69a43983274d5d0d949968046bd37353e122a9e7ce51310586\",\"dweb:/ipfs/QmS1RFvxtfULBn4ftP2RpiRpTYBdvXgD1uHy3xBcXc5rfE\"]}},\"version\":1}",
+  "bytecode": "0x608060405260405180608001604052806040518060400160405280600381526020017f726564000000000000000000000000000000000000000000000000000000000081525081526020016040518060400160405280600481526020017f626c75650000000000000000000000000000000000000000000000000000000081525081526020016040518060400160405280600681526020017f79656c6c6f77000000000000000000000000000000000000000000000000000081525081526020016040518060400160405280600581526020017f677265656e000000000000000000000000000000000000000000000000000000815250815250600190600461010992919061011c565b5034801561011657600080fd5b50610288565b826004810192821561015e579160200282015b8281111561015d57825182908051906020019061014d92919061016f565b509160200191906001019061012f565b5b50905061016b91906101ef565b5090565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f106101b057805160ff19168380011785556101de565b828001600101855582156101de579182015b828111156101dd5782518255916020019190600101906101c2565b5b5090506101eb919061021b565b5090565b61021891905b80821115610214576000818161020b9190610240565b506001016101f5565b5090565b90565b61023d91905b80821115610239576000816000905550600101610221565b5090565b90565b50805460018160011615610100020316600290046000825580601f106102665750610285565b601f016020900490600052602060002090810190610284919061021b565b5b50565b61055e806102976000396000f3fe608060405234801561001057600080fd5b50600436106100365760003560e01c80637321f4641461003b578063e7d895ee1461014e575b600080fd5b6100676004803603602081101561005157600080fd5b81019080803590602001909291905050506102a0565b604051808060200180602001838103835285818151815260200191508051906020019080838360005b838110156100ab578082015181840152602081019050610090565b50505050905090810190601f1680156100d85780820380516001836020036101000a031916815260200191505b50838103825284818151815260200191508051906020019080838360005b838110156101115780820151818401526020810190506100f6565b50505050905090810190601f16801561013e5780820380516001836020036101000a031916815260200191505b5094505050505060405180910390f35b61029e6004803603604081101561016457600080fd5b810190808035906020019064010000000081111561018157600080fd5b82018360208201111561019357600080fd5b803590602001918460018302840111640100000000831117156101b557600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f8201169050808301925050505050505091929192908035906020019064010000000081111561021857600080fd5b82018360208201111561022a57600080fd5b8035906020019184600183028401116401000000008311171561024c57600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f820116905080830192505050505050509192919290505050610401565b005b600581815481106102ad57fe5b9060005260206000209060020201600091509050806000018054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156103595780601f1061032e57610100808354040283529160200191610359565b820191906000526020600020905b81548152906001019060200180831161033c57829003601f168201915b505050505090806001018054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156103f75780601f106103cc576101008083540402835291602001916103f7565b820191906000526020600020905b8154815290600101906020018083116103da57829003601f168201915b5050505050905082565b600560405180604001604052808481526020018381525090806001815401808255809150509060018203906000526020600020906002020160009091929091909150600082015181600001908051906020019061045f929190610484565b50602082015181600101908051906020019061047c929190610484565b505050505050565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f106104c557805160ff19168380011785556104f3565b828001600101855582156104f3579182015b828111156104f25782518255916020019190600101906104d7565b5b5090506105009190610504565b5090565b61052691905b8082111561052257600081600090555060010161050a565b5090565b9056fea265627a7a723158209ac3a4d586a52f73ef74ba273be36df8e6fde673d19b5e685047fe2a65d333cc64736f6c63430005100032",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100365760003560e01c80637321f4641461003b578063e7d895ee1461014e575b600080fd5b6100676004803603602081101561005157600080fd5b81019080803590602001909291905050506102a0565b604051808060200180602001838103835285818151815260200191508051906020019080838360005b838110156100ab578082015181840152602081019050610090565b50505050905090810190601f1680156100d85780820380516001836020036101000a031916815260200191505b50838103825284818151815260200191508051906020019080838360005b838110156101115780820151818401526020810190506100f6565b50505050905090810190601f16801561013e5780820380516001836020036101000a031916815260200191505b5094505050505060405180910390f35b61029e6004803603604081101561016457600080fd5b810190808035906020019064010000000081111561018157600080fd5b82018360208201111561019357600080fd5b803590602001918460018302840111640100000000831117156101b557600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f8201169050808301925050505050505091929192908035906020019064010000000081111561021857600080fd5b82018360208201111561022a57600080fd5b8035906020019184600183028401116401000000008311171561024c57600080fd5b91908080601f016020809104026020016040519081016040528093929190818152602001838380828437600081840152601f19601f820116905080830192505050505050509192919290505050610401565b005b600581815481106102ad57fe5b9060005260206000209060020201600091509050806000018054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156103595780601f1061032e57610100808354040283529160200191610359565b820191906000526020600020905b81548152906001019060200180831161033c57829003601f168201915b505050505090806001018054600181600116156101000203166002900480601f0160208091040260200160405190810160405280929190818152602001828054600181600116156101000203166002900480156103f75780601f106103cc576101008083540402835291602001916103f7565b820191906000526020600020905b8154815290600101906020018083116103da57829003601f168201915b5050505050905082565b600560405180604001604052808481526020018381525090806001815401808255809150509060018203906000526020600020906002020160009091929091909150600082015181600001908051906020019061045f929190610484565b50602082015181600101908051906020019061047c929190610484565b505050505050565b828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f106104c557805160ff19168380011785556104f3565b828001600101855582156104f3579182015b828111156104f25782518255916020019190600101906104d7565b5b5090506105009190610504565b5090565b61052691905b8082111561052257600081600090555060010161050a565b5090565b9056fea265627a7a723158209ac3a4d586a52f73ef74ba273be36df8e6fde673d19b5e685047fe2a65d333cc64736f6c63430005100032",
+  "sourceMap": "28:376:0:-;;;144:51;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;244:21;8:9:-1;5:2;;;30:1;27;20:12;5:2;244:21:0;28:376;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;:::o;:::-;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;:::o;:::-;;;;;;;",
+  "deployedSourceMap": "28:376:0:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;28:376:0;;;;;;;;;;;;;;;;;;;;;;;;206:27;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;206:27:0;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;99:1;94:3;90:11;84:18;80:1;75:3;71:11;64:39;52:2;49:1;45:10;40:15;;8:100;;;12:14;206:27:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;99:1;94:3;90:11;84:18;80:1;75:3;71:11;64:39;52:2;49:1;45:10;40:15;;8:100;;;12:14;206:27:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;275:121;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;275:121:0;;;;;;;;;;21:11:-1;8;5:28;2:2;;;46:1;43;36:12;2:2;275:121:0;;35:9:-1;28:4;12:14;8:25;5:40;2:2;;;58:1;55;48:12;2:2;275:121:0;;;;;;100:9:-1;95:1;81:12;77:20;67:8;63:35;60:50;39:11;25:12;22:29;11:107;8:2;;;131:1;128;121:12;8:2;275:121:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;30:3:-1;22:6;14;1:33;99:1;93:3;85:6;81:16;74:27;137:4;133:9;126:4;121:3;117:14;113:30;106:37;;169:3;161:6;157:16;147:26;;275:121:0;;;;;;;;;;;;;;;;;21:11:-1;8;5:28;2:2;;;46:1;43;36:12;2:2;275:121:0;;35:9:-1;28:4;12:14;8:25;5:40;2:2;;;58:1;55;48:12;2:2;275:121:0;;;;;;100:9:-1;95:1;81:12;77:20;67:8;63:35;60:50;39:11;25:12;22:29;11:107;8:2;;;131:1;128;121:12;8:2;275:121:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;30:3:-1;22:6;14;1:33;99:1;93:3;85:6;81:16;74:27;137:4;133:9;126:4;121:3;117:14;113:30;106:37;;169:3;161:6;157:16;147:26;;275:121:0;;;;;;;;;;;;;;;:::i;:::-;;206:27;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;275:121::-;352:11;369:19;;;;;;;;376:5;369:19;;;;382:5;369:19;;;352:37;;39:1:-1;33:3;27:10;23:18;57:10;52:3;45:23;79:10;72:17;;0:93;352:37:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;275:121;;:::o;28:376::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o",
+  "source": "pragma solidity ^0.5.16;\r\n\r\ncontract AeroplaneChess{\r\n    struct Player{\r\n        string color;\r\n        string state;\r\n    }\r\n   uint8 id;\r\n   string[4] colorList=[\"red\",\"blue\",\"yellow\",\"green\"];\r\n   \r\n   Player[] public player_list;\r\n   \r\n   constructor()public{}\r\n   \r\n   function _addNewUser(string memory color,string memory state)public{\r\n       player_list.push(Player(color,state));\r\n   }\r\n   \r\n}",
+  "sourcePath": "C:\\workspace\\web-AeroplanChess\\contracts\\AreoplaneChess.sol",
+  "ast": {
+    "absolutePath": "/C/workspace/web-AeroplanChess/contracts/AreoplaneChess.sol",
+    "exportedSymbols": {
+      "AeroplaneChess": [
+        42
+      ]
+    },
+    "id": 43,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1,
+        "literals": [
+          "solidity",
+          "^",
+          "0.5",
+          ".16"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:0"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 42,
+        "linearizedBaseContracts": [
+          42
+        ],
+        "name": "AeroplaneChess",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "AeroplaneChess.Player",
+            "id": 6,
+            "members": [
+              {
+                "constant": false,
+                "id": 3,
+                "name": "color",
+                "nodeType": "VariableDeclaration",
+                "scope": 6,
+                "src": "82:12:0",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 2,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "82:6:0",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 5,
+                "name": "state",
+                "nodeType": "VariableDeclaration",
+                "scope": 6,
+                "src": "105:12:0",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 4,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "105:6:0",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "Player",
+            "nodeType": "StructDefinition",
+            "scope": 42,
+            "src": "58:67:0",
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 8,
+            "name": "id",
+            "nodeType": "VariableDeclaration",
+            "scope": 42,
+            "src": "130:8:0",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint8",
+              "typeString": "uint8"
+            },
+            "typeName": {
+              "id": 7,
+              "name": "uint8",
+              "nodeType": "ElementaryTypeName",
+              "src": "130:5:0",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint8",
+                "typeString": "uint8"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 17,
+            "name": "colorList",
+            "nodeType": "VariableDeclaration",
+            "scope": 42,
+            "src": "144:51:0",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_array$_t_string_storage_$4_storage",
+              "typeString": "string[4]"
+            },
+            "typeName": {
+              "baseType": {
+                "id": 9,
+                "name": "string",
+                "nodeType": "ElementaryTypeName",
+                "src": "144:6:0",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                }
+              },
+              "id": 11,
+              "length": {
+                "argumentTypes": null,
+                "hexValue": "34",
+                "id": 10,
+                "isConstant": false,
+                "isLValue": false,
+                "isPure": true,
+                "kind": "number",
+                "lValueRequested": false,
+                "nodeType": "Literal",
+                "src": "151:1:0",
+                "subdenomination": null,
+                "typeDescriptions": {
+                  "typeIdentifier": "t_rational_4_by_1",
+                  "typeString": "int_const 4"
+                },
+                "value": "4"
+              },
+              "nodeType": "ArrayTypeName",
+              "src": "144:9:0",
+              "typeDescriptions": {
+                "typeIdentifier": "t_array$_t_string_storage_$4_storage_ptr",
+                "typeString": "string[4]"
+              }
+            },
+            "value": {
+              "argumentTypes": null,
+              "components": [
+                {
+                  "argumentTypes": null,
+                  "hexValue": "726564",
+                  "id": 12,
+                  "isConstant": false,
+                  "isLValue": false,
+                  "isPure": true,
+                  "kind": "string",
+                  "lValueRequested": false,
+                  "nodeType": "Literal",
+                  "src": "165:5:0",
+                  "subdenomination": null,
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_stringliteral_8eec9d5ae546887db6b6a3889e6591fe96f3c16bc9d921551a4aac3adce52996",
+                    "typeString": "literal_string \"red\""
+                  },
+                  "value": "red"
+                },
+                {
+                  "argumentTypes": null,
+                  "hexValue": "626c7565",
+                  "id": 13,
+                  "isConstant": false,
+                  "isLValue": false,
+                  "isPure": true,
+                  "kind": "string",
+                  "lValueRequested": false,
+                  "nodeType": "Literal",
+                  "src": "171:6:0",
+                  "subdenomination": null,
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_stringliteral_fa187c1e7b6b42ab8b2d9415ab7e6b1e71b551fcdc8151ebafe46e40a10d90ad",
+                    "typeString": "literal_string \"blue\""
+                  },
+                  "value": "blue"
+                },
+                {
+                  "argumentTypes": null,
+                  "hexValue": "79656c6c6f77",
+                  "id": 14,
+                  "isConstant": false,
+                  "isLValue": false,
+                  "isPure": true,
+                  "kind": "string",
+                  "lValueRequested": false,
+                  "nodeType": "Literal",
+                  "src": "178:8:0",
+                  "subdenomination": null,
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_stringliteral_27617207effe6bfd81a3e2b21d8a20c4e622b23e5422d607771b4f8b8ba006fa",
+                    "typeString": "literal_string \"yellow\""
+                  },
+                  "value": "yellow"
+                },
+                {
+                  "argumentTypes": null,
+                  "hexValue": "677265656e",
+                  "id": 15,
+                  "isConstant": false,
+                  "isLValue": false,
+                  "isPure": true,
+                  "kind": "string",
+                  "lValueRequested": false,
+                  "nodeType": "Literal",
+                  "src": "187:7:0",
+                  "subdenomination": null,
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_stringliteral_f99e8d094ee97e7be9a3d7269f09f9996041160cc5c134b6a863be5b0ce9b5bd",
+                    "typeString": "literal_string \"green\""
+                  },
+                  "value": "green"
+                }
+              ],
+              "id": 16,
+              "isConstant": false,
+              "isInlineArray": true,
+              "isLValue": false,
+              "isPure": true,
+              "lValueRequested": false,
+              "nodeType": "TupleExpression",
+              "src": "164:31:0",
+              "typeDescriptions": {
+                "typeIdentifier": "t_array$_t_string_memory_$4_memory_ptr",
+                "typeString": "string memory[4] memory"
+              }
+            },
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 20,
+            "name": "player_list",
+            "nodeType": "VariableDeclaration",
+            "scope": 42,
+            "src": "206:27:0",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_array$_t_struct$_Player_$6_storage_$dyn_storage",
+              "typeString": "struct AeroplaneChess.Player[]"
+            },
+            "typeName": {
+              "baseType": {
+                "contractScope": null,
+                "id": 18,
+                "name": "Player",
+                "nodeType": "UserDefinedTypeName",
+                "referencedDeclaration": 6,
+                "src": "206:6:0",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_Player_$6_storage_ptr",
+                  "typeString": "struct AeroplaneChess.Player"
+                }
+              },
+              "id": 19,
+              "length": null,
+              "nodeType": "ArrayTypeName",
+              "src": "206:8:0",
+              "typeDescriptions": {
+                "typeIdentifier": "t_array$_t_struct$_Player_$6_storage_$dyn_storage_ptr",
+                "typeString": "struct AeroplaneChess.Player[]"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 23,
+              "nodeType": "Block",
+              "src": "263:2:0",
+              "statements": []
+            },
+            "documentation": null,
+            "id": 24,
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [],
+            "name": "",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 21,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "255:2:0"
+            },
+            "returnParameters": {
+              "id": 22,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "263:0:0"
+            },
+            "scope": 42,
+            "src": "244:21:0",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 40,
+              "nodeType": "Block",
+              "src": "342:54:0",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "arguments": [
+                          {
+                            "argumentTypes": null,
+                            "id": 35,
+                            "name": "color",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 26,
+                            "src": "376:5:0",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_string_memory_ptr",
+                              "typeString": "string memory"
+                            }
+                          },
+                          {
+                            "argumentTypes": null,
+                            "id": 36,
+                            "name": "state",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 28,
+                            "src": "382:5:0",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_string_memory_ptr",
+                              "typeString": "string memory"
+                            }
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": [
+                            {
+                              "typeIdentifier": "t_string_memory_ptr",
+                              "typeString": "string memory"
+                            },
+                            {
+                              "typeIdentifier": "t_string_memory_ptr",
+                              "typeString": "string memory"
+                            }
+                          ],
+                          "id": 34,
+                          "name": "Player",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 6,
+                          "src": "369:6:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_type$_t_struct$_Player_$6_storage_ptr_$",
+                            "typeString": "type(struct AeroplaneChess.Player storage pointer)"
+                          }
+                        },
+                        "id": 37,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "structConstructorCall",
+                        "lValueRequested": false,
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "369:19:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Player_$6_memory",
+                          "typeString": "struct AeroplaneChess.Player memory"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_struct$_Player_$6_memory",
+                          "typeString": "struct AeroplaneChess.Player memory"
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 31,
+                        "name": "player_list",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 20,
+                        "src": "352:11:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_array$_t_struct$_Player_$6_storage_$dyn_storage",
+                          "typeString": "struct AeroplaneChess.Player storage ref[] storage ref"
+                        }
+                      },
+                      "id": 33,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "push",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "352:16:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_arraypush_nonpayable$_t_struct$_Player_$6_storage_$returns$_t_uint256_$",
+                        "typeString": "function (struct AeroplaneChess.Player storage ref) returns (uint256)"
+                      }
+                    },
+                    "id": 38,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "352:37:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 39,
+                  "nodeType": "ExpressionStatement",
+                  "src": "352:37:0"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 41,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "_addNewUser",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 29,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 26,
+                  "name": "color",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 41,
+                  "src": "296:19:0",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 25,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "296:6:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 28,
+                  "name": "state",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 41,
+                  "src": "316:19:0",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 27,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "316:6:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "295:41:0"
+            },
+            "returnParameters": {
+              "id": 30,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "342:0:0"
+            },
+            "scope": 42,
+            "src": "275:121:0",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 43,
+        "src": "28:376:0"
+      }
+    ],
+    "src": "0:404:0"
+  },
+  "legacyAST": {
+    "absolutePath": "/C/workspace/web-AeroplanChess/contracts/AreoplaneChess.sol",
+    "exportedSymbols": {
+      "AeroplaneChess": [
+        42
+      ]
+    },
+    "id": 43,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1,
+        "literals": [
+          "solidity",
+          "^",
+          "0.5",
+          ".16"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:24:0"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 42,
+        "linearizedBaseContracts": [
+          42
+        ],
+        "name": "AeroplaneChess",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "AeroplaneChess.Player",
+            "id": 6,
+            "members": [
+              {
+                "constant": false,
+                "id": 3,
+                "name": "color",
+                "nodeType": "VariableDeclaration",
+                "scope": 6,
+                "src": "82:12:0",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 2,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "82:6:0",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 5,
+                "name": "state",
+                "nodeType": "VariableDeclaration",
+                "scope": 6,
+                "src": "105:12:0",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                },
+                "typeName": {
+                  "id": 4,
+                  "name": "string",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "105:6:0",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_storage_ptr",
+                    "typeString": "string"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "Player",
+            "nodeType": "StructDefinition",
+            "scope": 42,
+            "src": "58:67:0",
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 8,
+            "name": "id",
+            "nodeType": "VariableDeclaration",
+            "scope": 42,
+            "src": "130:8:0",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint8",
+              "typeString": "uint8"
+            },
+            "typeName": {
+              "id": 7,
+              "name": "uint8",
+              "nodeType": "ElementaryTypeName",
+              "src": "130:5:0",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint8",
+                "typeString": "uint8"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 17,
+            "name": "colorList",
+            "nodeType": "VariableDeclaration",
+            "scope": 42,
+            "src": "144:51:0",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_array$_t_string_storage_$4_storage",
+              "typeString": "string[4]"
+            },
+            "typeName": {
+              "baseType": {
+                "id": 9,
+                "name": "string",
+                "nodeType": "ElementaryTypeName",
+                "src": "144:6:0",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_string_storage_ptr",
+                  "typeString": "string"
+                }
+              },
+              "id": 11,
+              "length": {
+                "argumentTypes": null,
+                "hexValue": "34",
+                "id": 10,
+                "isConstant": false,
+                "isLValue": false,
+                "isPure": true,
+                "kind": "number",
+                "lValueRequested": false,
+                "nodeType": "Literal",
+                "src": "151:1:0",
+                "subdenomination": null,
+                "typeDescriptions": {
+                  "typeIdentifier": "t_rational_4_by_1",
+                  "typeString": "int_const 4"
+                },
+                "value": "4"
+              },
+              "nodeType": "ArrayTypeName",
+              "src": "144:9:0",
+              "typeDescriptions": {
+                "typeIdentifier": "t_array$_t_string_storage_$4_storage_ptr",
+                "typeString": "string[4]"
+              }
+            },
+            "value": {
+              "argumentTypes": null,
+              "components": [
+                {
+                  "argumentTypes": null,
+                  "hexValue": "726564",
+                  "id": 12,
+                  "isConstant": false,
+                  "isLValue": false,
+                  "isPure": true,
+                  "kind": "string",
+                  "lValueRequested": false,
+                  "nodeType": "Literal",
+                  "src": "165:5:0",
+                  "subdenomination": null,
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_stringliteral_8eec9d5ae546887db6b6a3889e6591fe96f3c16bc9d921551a4aac3adce52996",
+                    "typeString": "literal_string \"red\""
+                  },
+                  "value": "red"
+                },
+                {
+                  "argumentTypes": null,
+                  "hexValue": "626c7565",
+                  "id": 13,
+                  "isConstant": false,
+                  "isLValue": false,
+                  "isPure": true,
+                  "kind": "string",
+                  "lValueRequested": false,
+                  "nodeType": "Literal",
+                  "src": "171:6:0",
+                  "subdenomination": null,
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_stringliteral_fa187c1e7b6b42ab8b2d9415ab7e6b1e71b551fcdc8151ebafe46e40a10d90ad",
+                    "typeString": "literal_string \"blue\""
+                  },
+                  "value": "blue"
+                },
+                {
+                  "argumentTypes": null,
+                  "hexValue": "79656c6c6f77",
+                  "id": 14,
+                  "isConstant": false,
+                  "isLValue": false,
+                  "isPure": true,
+                  "kind": "string",
+                  "lValueRequested": false,
+                  "nodeType": "Literal",
+                  "src": "178:8:0",
+                  "subdenomination": null,
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_stringliteral_27617207effe6bfd81a3e2b21d8a20c4e622b23e5422d607771b4f8b8ba006fa",
+                    "typeString": "literal_string \"yellow\""
+                  },
+                  "value": "yellow"
+                },
+                {
+                  "argumentTypes": null,
+                  "hexValue": "677265656e",
+                  "id": 15,
+                  "isConstant": false,
+                  "isLValue": false,
+                  "isPure": true,
+                  "kind": "string",
+                  "lValueRequested": false,
+                  "nodeType": "Literal",
+                  "src": "187:7:0",
+                  "subdenomination": null,
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_stringliteral_f99e8d094ee97e7be9a3d7269f09f9996041160cc5c134b6a863be5b0ce9b5bd",
+                    "typeString": "literal_string \"green\""
+                  },
+                  "value": "green"
+                }
+              ],
+              "id": 16,
+              "isConstant": false,
+              "isInlineArray": true,
+              "isLValue": false,
+              "isPure": true,
+              "lValueRequested": false,
+              "nodeType": "TupleExpression",
+              "src": "164:31:0",
+              "typeDescriptions": {
+                "typeIdentifier": "t_array$_t_string_memory_$4_memory_ptr",
+                "typeString": "string memory[4] memory"
+              }
+            },
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 20,
+            "name": "player_list",
+            "nodeType": "VariableDeclaration",
+            "scope": 42,
+            "src": "206:27:0",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_array$_t_struct$_Player_$6_storage_$dyn_storage",
+              "typeString": "struct AeroplaneChess.Player[]"
+            },
+            "typeName": {
+              "baseType": {
+                "contractScope": null,
+                "id": 18,
+                "name": "Player",
+                "nodeType": "UserDefinedTypeName",
+                "referencedDeclaration": 6,
+                "src": "206:6:0",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_Player_$6_storage_ptr",
+                  "typeString": "struct AeroplaneChess.Player"
+                }
+              },
+              "id": 19,
+              "length": null,
+              "nodeType": "ArrayTypeName",
+              "src": "206:8:0",
+              "typeDescriptions": {
+                "typeIdentifier": "t_array$_t_struct$_Player_$6_storage_$dyn_storage_ptr",
+                "typeString": "struct AeroplaneChess.Player[]"
+              }
+            },
+            "value": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 23,
+              "nodeType": "Block",
+              "src": "263:2:0",
+              "statements": []
+            },
+            "documentation": null,
+            "id": 24,
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [],
+            "name": "",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 21,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "255:2:0"
+            },
+            "returnParameters": {
+              "id": 22,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "263:0:0"
+            },
+            "scope": 42,
+            "src": "244:21:0",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 40,
+              "nodeType": "Block",
+              "src": "342:54:0",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "arguments": [
+                      {
+                        "argumentTypes": null,
+                        "arguments": [
+                          {
+                            "argumentTypes": null,
+                            "id": 35,
+                            "name": "color",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 26,
+                            "src": "376:5:0",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_string_memory_ptr",
+                              "typeString": "string memory"
+                            }
+                          },
+                          {
+                            "argumentTypes": null,
+                            "id": 36,
+                            "name": "state",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 28,
+                            "src": "382:5:0",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_string_memory_ptr",
+                              "typeString": "string memory"
+                            }
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": [
+                            {
+                              "typeIdentifier": "t_string_memory_ptr",
+                              "typeString": "string memory"
+                            },
+                            {
+                              "typeIdentifier": "t_string_memory_ptr",
+                              "typeString": "string memory"
+                            }
+                          ],
+                          "id": 34,
+                          "name": "Player",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 6,
+                          "src": "369:6:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_type$_t_struct$_Player_$6_storage_ptr_$",
+                            "typeString": "type(struct AeroplaneChess.Player storage pointer)"
+                          }
+                        },
+                        "id": 37,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "kind": "structConstructorCall",
+                        "lValueRequested": false,
+                        "names": [],
+                        "nodeType": "FunctionCall",
+                        "src": "369:19:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_Player_$6_memory",
+                          "typeString": "struct AeroplaneChess.Player memory"
+                        }
+                      }
+                    ],
+                    "expression": {
+                      "argumentTypes": [
+                        {
+                          "typeIdentifier": "t_struct$_Player_$6_memory",
+                          "typeString": "struct AeroplaneChess.Player memory"
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 31,
+                        "name": "player_list",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 20,
+                        "src": "352:11:0",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_array$_t_struct$_Player_$6_storage_$dyn_storage",
+                          "typeString": "struct AeroplaneChess.Player storage ref[] storage ref"
+                        }
+                      },
+                      "id": 33,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "push",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "352:16:0",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_function_arraypush_nonpayable$_t_struct$_Player_$6_storage_$returns$_t_uint256_$",
+                        "typeString": "function (struct AeroplaneChess.Player storage ref) returns (uint256)"
+                      }
+                    },
+                    "id": 38,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "kind": "functionCall",
+                    "lValueRequested": false,
+                    "names": [],
+                    "nodeType": "FunctionCall",
+                    "src": "352:37:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 39,
+                  "nodeType": "ExpressionStatement",
+                  "src": "352:37:0"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 41,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "_addNewUser",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 29,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 26,
+                  "name": "color",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 41,
+                  "src": "296:19:0",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 25,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "296:6:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 28,
+                  "name": "state",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 41,
+                  "src": "316:19:0",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 27,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "316:6:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "295:41:0"
+            },
+            "returnParameters": {
+              "id": 30,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "342:0:0"
+            },
+            "scope": 42,
+            "src": "275:121:0",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 43,
+        "src": "28:376:0"
+      }
+    ],
+    "src": "0:404:0"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.5.16+commit.9c3226ce.Emscripten.clang"
+  },
+  "networks": {
+    "5777": {
+      "events": {},
+      "links": {},
+      "address": "0xC364d94262b64f94aB63C44b5D345328C1F2f5CB",
+      "transactionHash": "0xfbdfb428755acef88faecd15b22d079355e72ab40835f502737f4007dc0d27f7"
+    }
+  },
+  "schemaVersion": "3.2.0",
+  "updatedAt": "2020-06-16T10:21:32.021Z",
+  "networkType": "ethereum",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {}
+  }
+}
